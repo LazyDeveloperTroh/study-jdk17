@@ -1,3 +1,5 @@
+package record;
+
 import java.util.Objects;
 
 public record RecordPerson(String name, String address) {
