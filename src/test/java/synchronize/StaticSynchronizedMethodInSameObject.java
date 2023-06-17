@@ -1,10 +1,9 @@
 package synchronize;
 
-public class SynchronizedMethodInSameObject {
+public class StaticSynchronizedMethodInSameObject {
     /**
-     * 1개의 인스턴스에서 synchronize method를 서로 다른 스레드가 실행한 경우이다.
-     * 스레드1에서 해당 메소드를 사용하고 있기 때문에 10회를 마칠 때 까지
-     * 스레드2에서 접근할 수 없다.
+     * static synchronized method는 클래스 단위로 lock을 한다.
+     * 객체가 1개이기 클래스 단위로 lock을 걸더라도 2개의 스레드가 동기화된 모습을 볼 수 있다.
      * @param args
      */
     public static void main(String[] args) {
@@ -20,7 +19,7 @@ public class SynchronizedMethodInSameObject {
     }
     
     static class SyncTestObject {
-        private synchronized void method1(String name) {
+        private static synchronized void method1(String name) {
             try {
                 for(int i=0; i<10; i++) {
                     System.out.println(name);
